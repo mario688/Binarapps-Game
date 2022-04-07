@@ -1,9 +1,9 @@
 import Style from "./Board.module.scss";
-import WordsList from "../../words/WordsList";
+import CategoryList from "../../words/CategoryList";
 const Board = () => {
   return (
     <div className={Style.boardContainer}>
-      <WordsList />
+      <CategoryList />
     </div>
   );
 };

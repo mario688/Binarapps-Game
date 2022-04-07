@@ -1,11 +1,9 @@
-import useRequest from "../../hook/use-http";
-
-const WordsList = () => {
-  const resp = useRequest(
-    "https://sturdy-dragon-299320-default-rtdb.firebaseio.com/wordslist.json",
-    "POST",
-    { test: "xd", nym: 3 }
-  );
-  return <>xdd</>;
+interface Category {
+  all_words: string[];
+  good_words: string[];
+  questions: string;
+}
+const WordItem: React.FC<{ key: string; category: Category }> = (props) => {
+  return <></>;
 };
-export default WordsList;
+export default WordItem;

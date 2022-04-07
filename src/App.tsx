@@ -1,9 +1,12 @@
 import "./App.css";
 import Input from "./components/UI/Input";
-import React, { useRef } from "react";
+import { useRef } from "react";
+import Button from "./components/UI/Button";
 function App() {
   const refNick = useRef<HTMLInputElement>();
-
+  const first = () => {
+    console.log("xxddd");
+  };
   return (
     <div className="App">
       <Input
@@ -17,6 +20,7 @@ function App() {
           placeholder: "Enter your nickname here...",
         }}
       />
+      <Button onClickHandler={first}>TEST</Button>
     </div>
   );
 }

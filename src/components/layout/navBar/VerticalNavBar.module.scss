@@ -1,0 +1,42 @@
+@import "../../../scss/colors";
+
+@import "../../../scss/mixins";
+.verticalNav {
+  position: absolute;
+  background-color: $secondColor;
+  top: 4rem;
+  left: 0;
+  width: 50vw;
+  height: calc(100vh - 4rem);
+  z-index: 100;
+  transition: all 0.5s ease-in-out;
+}
+.verticalBarList {
+  @include flexCenter(column);
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  color: $fontColor;
+  li {
+    height: 8rem;
+    display: block;
+    &:hover {
+      cursor: pointer;
+      font-weight: 600;
+      color: lighten($fontColor, 30);
+    }
+  }
+}
+.navOpen {
+  opacity: 1;
+  transform: translateY(0);
+}
+.navClose {
+  opacity: 0;
+  transform: translateY(-150%);
+}
+@media (min-width: 40rem) {
+  .verticalNav {
+    display: none;
+  }
+}

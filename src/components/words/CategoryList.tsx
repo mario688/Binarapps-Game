@@ -1,5 +1,5 @@
 import useRequest from "../../hook/use-http";
-import WordsList from "./WordsList";
+import CategoryItem from "./CategoryItem";
 const CateegoryList = () => {
   const response = useRequest(
     "https://sturdy-dragon-299320-default-rtdb.firebaseio.com/wordslist.json"
@@ -7,7 +7,7 @@ const CateegoryList = () => {
   const categoryList: any = response.dataResp;
   const wordslist = [];
   for (let key in categoryList) {
-    wordslist.push(<WordsList key={key} category={categoryList[key]} />);
+    wordslist.push(<CategoryItem key={key} category={categoryList[key]} />);
   }
 
   return <>{wordslist}</>;

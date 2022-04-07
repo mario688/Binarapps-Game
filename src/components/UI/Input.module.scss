@@ -1,0 +1,11 @@
+@import "../../scss/mixins";
+.inputContainer {
+  @include flexCenter(column);
+  align-items: stretch;
+  width: 15rem;
+  height: 5rem;
+  label {
+    margin-bottom: 0.2rem;
+    font-weight: bolder;
+  }
+}

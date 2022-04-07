@@ -3,6 +3,8 @@ import Input from "./components/UI/Input";
 import { useRef } from "react";
 import Button from "./components/UI/Button";
 import NavBar from "./components/layout/navBar/NavBar";
+import Board from "./components/layout/gameBoard/Board";
+
 function App() {
   const refNick = useRef<HTMLInputElement>();
   const first = () => {
@@ -10,7 +12,9 @@ function App() {
   };
   return (
     <div className="App">
-      <NavBar menuElements={["Play Game!", "Score Bord", "Create Words set"]} />
+      <NavBar
+        menuElements={["Play Game!", "Score Board", "Create new words set"]}
+      />
       <Input
         ref={refNick}
         label={"Nick: "}
@@ -23,6 +27,7 @@ function App() {
         }}
       />
       <Button onClickHandler={first}>TEST</Button>
+      <Board />
     </div>
   );
 }

@@ -14,6 +14,7 @@ export const NicknameContextProvider: React.FC = (props) => {
   };
 
   let isRegistered = !!nickName;
+
   return (
     <NicknameContext.Provider value={{ nickName, isRegistered, register }}>
       {props.children}

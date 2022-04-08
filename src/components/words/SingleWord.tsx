@@ -1,18 +1,24 @@
+import { useState } from "react";
 import Style from "./SingleWord.module.scss";
 const SingleWord: React.FC<{
-  onCheckWord: (word: string) => void;
+  onCheckWord: (word: string) => boolean;
   word: string;
 }> = (props) => {
   const { onCheckWord } = props;
+  const [isSelected, setIsSelected] = useState(false);
 
   const onClickHandler = (e: any) => {
-    onCheckWord(e.target.textContent);
+    setIsSelected((prevState) => !prevState);
+    console.log(onCheckWord(e.target.textContent));
   };
 
   return (
-    <div className={Style.singleWord} onClick={onClickHandler}>
-      {props.word}
-    </div>
+    <>
+      {isSelected.toString()}
+      <div className={Style.singleWord} onClick={onClickHandler}>
+        {props.word}
+      </div>
+    </>
   );
 };
 export default SingleWord;

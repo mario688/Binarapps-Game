@@ -4,7 +4,7 @@ import { useRef } from "react";
 import Button from "./components/UI/Button";
 import NavBar from "./components/layout/navBar/NavBar";
 import Board from "./components/layout/gameBoard/Board";
-
+import NicknameContext from "./context/RegisterNicknameContext";
 function App() {
   const refNick = useRef<HTMLInputElement>();
   const first = () => {

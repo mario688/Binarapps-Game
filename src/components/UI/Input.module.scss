@@ -2,10 +2,18 @@
 .inputContainer {
   @include flexCenter(column);
   align-items: stretch;
-  width: 15rem;
+  width: clamp(8rem, 80%, 40rem);
   height: 5rem;
   label {
     margin-bottom: 0.2rem;
     font-weight: bolder;
+  }
+  input {
+    height: 2rem;
+    padding: 0.3rem;
+    text-align: center;
+    font-size: larger;
+    border: 2px solid rgb(107, 107, 107);
+    border-radius: 10px;
   }
 }

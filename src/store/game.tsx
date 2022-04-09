@@ -21,10 +21,13 @@ const gameSlice = createSlice({
       state.selectedWords.push(action.payload);
     },
     deselectWord: (state, action) => {
-      const newArr = state.selectedWords.filter((el) => el != action.payload);
-      state.selectedWords = newArr;
+      const updatedSelectedWords = state.selectedWords.filter(
+        (el) => el != action.payload
+      );
+      state.selectedWords = updatedSelectedWords;
     },
     countScore: (state) => {
+      state.score = 0;
       // (liczba zaznaczonych poprawnych odpowiedzi * 2) - (liczba zaznaczonych błędnych odpowiedzi +
       //   liczba niezaznaczonych poprawnych odpowiedzi).
 

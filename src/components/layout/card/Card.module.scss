@@ -1,0 +1,8 @@
+@import "../../../scss/mixins";
+.cardContainer {
+  @include flexCenter(column);
+  height: 30rem;
+  width: 80%;
+
+  margin: 5rem auto;
+}

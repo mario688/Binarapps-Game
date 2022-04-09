@@ -1,8 +1,8 @@
 .singleWord {
   text-align: center;
+  font-size: x-large;
   margin: 1rem;
   border-radius: 50rem;
-  background-color: aliceblue;
   width: 6rem;
   height: 1.5rem;
   &:hover {
@@ -10,5 +10,5 @@
   }
 }
 .selected {
-  background-color: rgb(44, 183, 65);
+  color: rgb(154, 154, 154);
 }

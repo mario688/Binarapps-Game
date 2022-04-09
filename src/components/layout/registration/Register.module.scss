@@ -1,7 +1,9 @@
 @import "../../../scss/mixins";
 .formContainer {
   @include flexCenter(column);
-  width: 20rem;
+  width: clamp(10rem, 80%, 40rem);
   height: 10rem;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px black;
   background-color: cadetblue;
 }

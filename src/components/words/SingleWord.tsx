@@ -15,8 +15,6 @@ const SingleWord: React.FC<{
     !isSelected
       ? dispatch(gameActions.selectWord(word))
       : dispatch(gameActions.deselectWord(word));
-
-    dispatch(gameActions.countScore());
   };
 
   return (

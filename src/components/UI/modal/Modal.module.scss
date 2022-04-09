@@ -1,0 +1,33 @@
+@import "../../../scss/mixins";
+.backdrop {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.379);
+}
+.modal {
+  z-index: 1000;
+  height: clamp(8rem, 50%, 15rem);
+  width: clamp(18rem, 50%, 35rem);
+  position: absolute;
+  border-radius: 5px;
+  top: 30vh;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: chartreuse;
+}
+.title {
+  @include flexCenter(row);
+  border-radius: 5px;
+  font-weight: bolder;
+  font-size: large;
+  width: 100%;
+  height: 3rem;
+  background-color: aqua;
+}
+.message {
+  @include flexCenter(column);
+  width: 100%;
+  height: calc(100% - 3rem);
+}

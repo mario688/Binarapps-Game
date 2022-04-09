@@ -1,7 +1,11 @@
 @import "../../scss/mixins";
 
+.gameContent {
+  height: 100%;
+  position: relative;
+}
 .question {
-  background-color: red;
+  background-color: rgb(206, 251, 204);
   width: 100%;
   height: 2rem;
   text-align: center;
@@ -10,4 +14,7 @@
 .wordsFlexContainer {
   @include flexCenter(row);
   flex-wrap: wrap;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }

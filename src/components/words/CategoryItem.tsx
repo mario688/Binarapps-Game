@@ -1,22 +1,18 @@
 import SingleWord from "./SingleWord";
 import Style from "./CategoryItem.module.scss";
+import { useDispatch } from "react-redux";
+import { gameActions } from "../../store/game";
 interface Category {
   all_words: string[];
   good_words: string[];
   question: string;
 }
 const CategoryItem: React.FC<{ category: Category }> = (props) => {
+  const dispatch = useDispatch();
   const { all_words, good_words, question } = props.category;
-
-  const CheckWordHandler = (word: string) => {
-    if (!good_words.includes(word)) {
-      return false;
-    }
-    return true;
-  };
-
+  dispatch(gameActions.setGoodWords(good_words));
   const singleWord = all_words.map((element) => (
-    <SingleWord key={element} word={element} onCheckWord={CheckWordHandler} />
+    <SingleWord key={element} word={element} />
   ));
 
   return (

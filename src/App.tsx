@@ -21,7 +21,9 @@ function App() {
       />
       {!isRegistered && <Register />}
       {isRegistered && <Board />}
-      <Button onClickHandler={finishGameHandler}>finish game</Button>
+      {isRegistered && (
+        <Button onClickHandler={finishGameHandler}>finish game</Button>
+      )}
     </div>
   );
 }

@@ -1,7 +1,14 @@
 .singleWord {
+  text-align: center;
   margin: 1rem;
-  border: 1px solid black;
+  border-radius: 50rem;
   background-color: aliceblue;
   width: 6rem;
   height: 1.5rem;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.selected {
+  background-color: rgb(44, 183, 65);
 }

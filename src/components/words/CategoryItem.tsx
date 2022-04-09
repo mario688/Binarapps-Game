@@ -1,5 +1,5 @@
 import SingleWord from "./SingleWord";
-
+import Style from "./CategoryItem.module.scss";
 interface Category {
   all_words: string[];
   good_words: string[];
@@ -21,8 +21,8 @@ const CategoryItem: React.FC<{ category: Category }> = (props) => {
 
   return (
     <>
-      <h1>{question}</h1>
-      {singleWord}
+      <div className={Style.question}>{question}</div>
+      <div className={Style.wordsFlexContainer}> {singleWord}</div>
     </>
   );
 };

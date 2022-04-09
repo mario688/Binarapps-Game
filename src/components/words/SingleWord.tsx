@@ -14,8 +14,10 @@ const SingleWord: React.FC<{
 
   return (
     <>
-      {isSelected.toString()}
-      <div className={Style.singleWord} onClick={onClickHandler}>
+      <div
+        className={`${Style.singleWord} ${isSelected && Style.selected}`}
+        onClick={onClickHandler}
+      >
         {props.word}
       </div>
     </>

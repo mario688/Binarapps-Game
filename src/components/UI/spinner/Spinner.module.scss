@@ -1,0 +1,16 @@
+.spinner {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border: 1rem solid rgb(238, 238, 238);
+  border-top: 1rem solid rgb(165, 165, 165);
+  animation: rotate 1s infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}

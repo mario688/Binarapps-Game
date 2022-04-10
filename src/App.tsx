@@ -12,6 +12,7 @@ import { useContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "./components/UI/Button";
 import ScoreBoard from "./components/layout/scoreBoard/ScoreBoard";
+import Spinner from "./components/UI/spinner/Spinner";
 function App() {
   const { isRegistered, nickName } = useContext(NicknameContext);
   const [showScore, setShowScore] = useState(false);
@@ -29,6 +30,7 @@ function App() {
   const checkAnswersHandler = () => {};
   return (
     <div className="App">
+      <Spinner />
       <NavBar
         menuElements={[
           "Play Game!",

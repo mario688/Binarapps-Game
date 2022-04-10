@@ -4,11 +4,13 @@ interface InitState {
   goodWords: string[];
   selectedWords: string[];
   score: number;
+  showAnswers: boolean;
 }
 const initState: InitState = {
   goodWords: [],
   selectedWords: [],
   score: 0,
+  showAnswers: false,
 };
 const gameSlice = createSlice({
   name: "game",
@@ -25,6 +27,10 @@ const gameSlice = createSlice({
         (el) => el !== action.payload
       );
       state.selectedWords = updatedSelectedWords;
+    },
+    checkAnswers: (state) => {
+      console.log(state.showAnswers);
+      state.showAnswers = !state.showAnswers;
     },
     countScore: (state) => {
       state.score = 0;
@@ -70,6 +76,7 @@ const gameSlice = createSlice({
     },
   },
 });
+
 export const store = configureStore({
   reducer: gameSlice.reducer,
 });

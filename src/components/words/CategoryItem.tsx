@@ -13,7 +13,11 @@ const CategoryItem: React.FC<{ category: Category }> = (props) => {
   dispatch(gameActions.setGoodWords(good_words));
 
   const singleWord = all_words.map((element) => (
-    <SingleWord key={element} word={element} />
+    <SingleWord
+      key={element}
+      word={element}
+      isCorrect={good_words.includes(element)}
+    />
   ));
 
   return (

@@ -1,14 +1,23 @@
+@import "../../scss/mixins";
 .singleWord {
+  @include flexCenter(column);
   text-align: center;
   font-size: x-large;
   margin: 1rem;
   border-radius: 50rem;
   width: 6rem;
-  height: 1.5rem;
+
   &:hover {
     cursor: pointer;
   }
 }
+
 .selected {
   color: rgb(154, 154, 154);
+}
+.Bad {
+  color: rgb(255, 0, 0);
+}
+.Good {
+  color: rgb(32, 122, 32);
 }

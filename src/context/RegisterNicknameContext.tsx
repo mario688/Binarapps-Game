@@ -3,6 +3,7 @@ import React, { useState } from "react";
 const NicknameContext = React.createContext({
   nickName: "",
   isRegistered: false,
+
   register: (nick: string) => {},
 });
 

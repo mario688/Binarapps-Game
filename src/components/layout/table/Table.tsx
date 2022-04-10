@@ -4,7 +4,7 @@ const Table: React.FC<{ heads: string[]; rows: any[][] }> = (props) => {
   const theads = heads.map((el, id) => <th key={id}>{el}</th>);
   const tabledatas = rows.map((tdata, id) => (
     <tr key={id}>
-      <td> {id}</td>
+      <td> {id + 1}</td>
       {tdata.map((trow) => (
         <td key={Math.random().toString()}> {trow}</td>
       ))}

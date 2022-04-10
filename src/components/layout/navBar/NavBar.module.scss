@@ -25,6 +25,10 @@
       font-weight: 600;
       color: lighten($fontColor, 30);
     }
+    .navLink {
+      color: $fontColor;
+      text-decoration: none;
+    }
   }
   .lastElement {
     margin-left: auto;

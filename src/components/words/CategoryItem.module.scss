@@ -2,6 +2,7 @@
 
 .gameContent {
   height: 100%;
+  width: 100%;
   position: relative;
 }
 .question {
@@ -12,9 +13,9 @@
   padding-top: 0.5rem;
 }
 .wordsFlexContainer {
-  @include flexCenter(row);
+  @include flexCenter(column);
   flex-wrap: wrap;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  width: 100%;
+  height: calc(100% - 2.5rem);
+  background-color: aquamarine;
 }

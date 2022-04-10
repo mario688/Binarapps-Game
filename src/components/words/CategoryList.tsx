@@ -1,11 +1,12 @@
 import useRequest from "../../hook/use-http";
+import Spinner from "../UI/spinner/Spinner";
 import CategoryItem from "./CategoryItem";
 const CategoryList = () => {
-  const response = useRequest(
+  const { dataResp, isLoading } = useRequest(
     "https://sturdy-dragon-299320-default-rtdb.firebaseio.com/wordslist.json"
   );
 
-  const categoryList: any = response.dataResp;
+  const categoryList: any = dataResp;
   const wordslist = [];
   for (let key in categoryList) {
     wordslist.push(<CategoryItem key={key} category={categoryList[key]} />);
@@ -15,6 +16,6 @@ const CategoryList = () => {
   const currentWordsSet =
     wordslist[Math.floor(Math.random() * wordslist.length)];
 
-  return <>{currentWordsSet}</>;
+  return <>{isLoading ? <Spinner /> : currentWordsSet}</>;
 };
 export default CategoryList;

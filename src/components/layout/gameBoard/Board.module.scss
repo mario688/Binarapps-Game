@@ -1,6 +1,7 @@
 @import "../../../scss/mixins";
 
 .boardContainer {
+  @include flexCenter(column);
   background-color: rgb(104, 250, 250);
   margin: 5rem auto;
   width: 100%;

@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 const useRequest = (url: string, method?: string, body?: {}) => {
   const [dataResp, setDataResp] = useState();
+  const [isLoading, setIsLoading] = useState(false);
   const fetchHandler = async () => {
+    setIsLoading(true);
     const response = await fetch(url, {
       method: method ? method : "GET",
       headers: {
@@ -10,6 +12,7 @@ const useRequest = (url: string, method?: string, body?: {}) => {
       body: body ? JSON.stringify(body) : null,
     });
     const responseJson = await response.json();
+    setIsLoading(false);
     setDataResp(responseJson);
   };
 
@@ -18,6 +21,7 @@ const useRequest = (url: string, method?: string, body?: {}) => {
   }, []);
 
   return {
+    isLoading,
     dataResp,
   };
 };

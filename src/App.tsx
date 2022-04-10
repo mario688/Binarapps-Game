@@ -6,13 +6,12 @@ import { Routes, Route } from "react-router-dom";
 import Card from "./components/layout/card/Card";
 import Register from "./components/layout/registration/Register";
 import NicknameContext from "./context/RegisterNicknameContext";
-
 import { gameActions } from "./store/game";
 import { useContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "./components/UI/Button";
 import ScoreBoard from "./components/layout/scoreBoard/ScoreBoard";
-import Spinner from "./components/UI/spinner/Spinner";
+
 function App() {
   const { isRegistered, nickName } = useContext(NicknameContext);
   const [showScore, setShowScore] = useState(false);
@@ -30,7 +29,6 @@ function App() {
   const checkAnswersHandler = () => {};
   return (
     <div className="App">
-      <Spinner />
       <NavBar
         menuElements={[
           "Play Game!",

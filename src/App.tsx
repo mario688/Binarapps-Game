@@ -14,15 +14,20 @@ function App() {
   const [showScore, setShowScore] = useState(false);
   const score = useSelector((state: any) => state.score);
   const dispatch = useDispatch();
+
+  const showScoreHandler = () => {
+    setShowScore((prevState) => !prevState);
+  };
   const finishGameHandler = () => {
     dispatch(gameActions.countScore());
-    setShowScore((prev) => !prev);
+    showScoreHandler();
   };
 
   return (
     <div className="App">
       {showScore && (
         <Modal
+          onClickHandler={showScoreHandler}
           title="SCORE"
           message={`Congratulations, ${nickName}!\n Your score: \n ${score}`}
         />

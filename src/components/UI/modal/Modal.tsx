@@ -1,7 +1,11 @@
 import ReactDOM from "react-dom";
 import Style from "./Modal.module.scss";
 import { useState } from "react";
-const Modal: React.FC<{ title: string; message: string }> = (props) => {
+const Modal: React.FC<{
+  title: string;
+  message: string;
+  onClickHandler: () => void;
+}> = (props) => {
   const [close, setClose] = useState(true);
   const Backdrop = () => {
     return (
@@ -22,20 +26,16 @@ const Modal: React.FC<{ title: string; message: string }> = (props) => {
     );
   };
   return (
-    <>
-      {close && (
-        <>
-          {ReactDOM.createPortal(
-            <Backdrop />,
-            document.getElementById("backdrop-root") as HTMLElement
-          )}
-          {ReactDOM.createPortal(
-            <ModalOverlay />,
-            document.getElementById("backdrop-root") as HTMLElement
-          )}
-        </>
+    <div onClick={props.onClickHandler}>
+      {ReactDOM.createPortal(
+        <Backdrop />,
+        document.getElementById("backdrop-root") as HTMLElement
       )}
-    </>
+      {ReactDOM.createPortal(
+        <ModalOverlay />,
+        document.getElementById("backdrop-root") as HTMLElement
+      )}
+    </div>
   );
 };
 export default Modal;

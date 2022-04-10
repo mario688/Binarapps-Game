@@ -2,14 +2,20 @@ import React, { useState } from "react";
 import VerticalNavBar from "./VerticalNavBar";
 import Style from "./NavBar.module.scss";
 import { ReactComponent as HamburgerIcon } from "../../../svg/hamburger.svg";
-
-const NavBar: React.FC<{ menuElements: String[] }> = (props) => {
+import { NavLink } from "react-router-dom";
+const NavBar: React.FC<{ menuElements: String[]; menuLinks: String[] }> = (
+  props
+) => {
   const [showMenu, setshowMenu] = useState(false);
 
   const showMenuHandler = () => {
     setshowMenu((prevState) => !prevState);
   };
-  const liList = props.menuElements.map((el, id) => <li key={id}>{el}</li>);
+  const liList = props.menuElements.map((el, id) => (
+    <NavLink to={`${props.menuLinks[id]}`}>
+      <li key={id}>{el}</li>
+    </NavLink>
+  ));
 
   return (
     <>

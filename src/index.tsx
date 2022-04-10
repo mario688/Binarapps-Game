@@ -1,5 +1,5 @@
-import React from "react";
 import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 import { store } from "./store/game";
 import ReactDOM from "react-dom/client";
 import "./index.css";
@@ -21,7 +21,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <Provider store={store}>
     <NicknameContextProvider>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </NicknameContextProvider>
   </Provider>
 );

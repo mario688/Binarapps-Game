@@ -2,9 +2,11 @@ import "./App.scss";
 import Modal from "./components/UI/modal/Modal";
 import NavBar from "./components/layout/navBar/NavBar";
 import Board from "./components/layout/gameBoard/Board";
+import { Routes, Route } from "react-router-dom";
 import Card from "./components/layout/card/Card";
 import Register from "./components/layout/registration/Register";
 import NicknameContext from "./context/RegisterNicknameContext";
+
 import { gameActions } from "./store/game";
 import { useContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,15 +25,9 @@ function App() {
     showScoreHandler();
   };
 
+  const checkAnswersHandler = () => {};
   return (
     <div className="App">
-      {showScore && (
-        <Modal
-          onClickHandler={showScoreHandler}
-          title="SCORE"
-          message={`Congratulations, ${nickName}!\n Your score: \n ${score}`}
-        />
-      )}
       <NavBar
         menuElements={[
           "Play Game!",
@@ -39,14 +35,29 @@ function App() {
           "Create new words set",
           nickName,
         ]}
+        menuLinks={["play", "score", "addnewset"]}
       />
-      <Card>
-        {!isRegistered && <Register />}
-        {isRegistered && <Board />}
-        {isRegistered && (
-          <Button onClickHandler={finishGameHandler}>finish game</Button>
-        )}
-      </Card>
+      <Routes>
+        <Route
+          path="/play"
+          element={
+            <Card>
+              {!isRegistered && <Register />}
+              {isRegistered && <Board />}
+              {isRegistered && (
+                <Button onClickHandler={finishGameHandler}>finish game</Button>
+              )}
+            </Card>
+          }
+        />
+      </Routes>
+      {showScore && (
+        <Modal
+          onClickHandler={showScoreHandler}
+          title="SCORE"
+          message={`Congratulations, ${nickName}!\n Your score: \n ${score}`}
+        />
+      )}
     </div>
   );
 }

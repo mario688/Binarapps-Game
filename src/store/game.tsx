@@ -22,31 +22,51 @@ const gameSlice = createSlice({
     },
     deselectWord: (state, action) => {
       const updatedSelectedWords = state.selectedWords.filter(
-        (el) => el != action.payload
+        (el) => el !== action.payload
       );
       state.selectedWords = updatedSelectedWords;
     },
     countScore: (state) => {
       state.score = 0;
+      console.log("-------------------------------");
+      console.log("Powinno być 0: " + state.score);
       // (liczba zaznaczonych poprawnych odpowiedzi * 2) - (liczba zaznaczonych błędnych odpowiedzi +
       //   liczba niezaznaczonych poprawnych odpowiedzi).
 
       const { goodWords, selectedWords } = state;
+      console.log("zestaw: " + goodWords);
+      console.log("selectedWords: " + selectedWords);
+      console.log("------");
 
       const numberOfSelectedGoodWords = selectedWords.filter((el) =>
         goodWords.includes(el)
       ).length;
+
+      console.log("numberOfSelectedGoodWords: " + numberOfSelectedGoodWords);
+
       const numberOfSelectedWrongWords =
         selectedWords.length - numberOfSelectedGoodWords;
+      console.log(
+        "numberOfSelectedWrongWords: " +
+          numberOfSelectedWrongWords +
+          ", " +
+          selectedWords.length +
+          " - " +
+          numberOfSelectedGoodWords
+      );
 
       const numberOfUnselectedGoodWords =
         goodWords.length - numberOfSelectedGoodWords;
-
+      console.log(
+        "numberOfUnselectedGoodWords: " + numberOfUnselectedGoodWords
+      );
       state.score =
         numberOfSelectedGoodWords * 2 -
         (numberOfSelectedWrongWords + numberOfUnselectedGoodWords);
 
       console.log(state.score);
+      state.selectedWords = [];
+      console.log("-------------------------------");
     },
   },
 });

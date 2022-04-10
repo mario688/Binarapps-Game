@@ -1,12 +1,20 @@
+import Style from "./Table.module.scss";
 const Table: React.FC<{ heads: string[]; rows: any[][] }> = (props) => {
   const { heads, rows } = props;
-  const theads = heads.map((el) => <th>{el}</th>);
-  const tabledatas = rows.map((el) => <td>{el}</td>);
+  const theads = heads.map((el, id) => <th key={id}>{el}</th>);
+  const tabledatas = rows.map((tdata, id) => (
+    <tr key={id}>
+      <td> {id}</td>
+      {tdata.map((trow) => (
+        <td key={Math.random().toString()}> {trow}</td>
+      ))}
+    </tr>
+  ));
   return (
-    <table>
+    <table className={Style.table}>
       <tbody>
         <tr>{theads}</tr>
-        <tr>{tabledatas}</tr>
+        {tabledatas}
       </tbody>
     </table>
   );

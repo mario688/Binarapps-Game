@@ -12,7 +12,7 @@ const NavBar: React.FC<{ menuElements: String[]; menuLinks: String[] }> = (
     setshowMenu((prevState) => !prevState);
   };
   const liList = props.menuElements.map((el, id) => (
-    <NavLink to={`${props.menuLinks[id]}`}>
+    <NavLink key={id} to={`${props.menuLinks[id]}`}>
       <li key={id}>{el}</li>
     </NavLink>
   ));

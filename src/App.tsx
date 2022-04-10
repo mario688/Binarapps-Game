@@ -11,6 +11,7 @@ import { gameActions } from "./store/game";
 import { useContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "./components/UI/Button";
+import ScoreBoard from "./components/layout/scoreBoard/ScoreBoard";
 function App() {
   const { isRegistered, nickName } = useContext(NicknameContext);
   const [showScore, setShowScore] = useState(false);
@@ -35,11 +36,11 @@ function App() {
           "Create new words set",
           nickName,
         ]}
-        menuLinks={["play", "score", "addnewset"]}
+        menuLinks={["play", "score", "addnewset", `${nickName}`]}
       />
       <Routes>
         <Route
-          path="/play"
+          path="play"
           element={
             <Card>
               {!isRegistered && <Register />}
@@ -50,6 +51,7 @@ function App() {
             </Card>
           }
         />
+        <Route path="score" element={<ScoreBoard />} />
       </Routes>
       {showScore && (
         <Modal

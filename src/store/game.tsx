@@ -29,7 +29,6 @@ const gameSlice = createSlice({
       state.selectedWords = updatedSelectedWords;
     },
     checkAnswers: (state) => {
-      console.log(state.showAnswers);
       state.showAnswers = !state.showAnswers;
     },
     countScore: (state) => {

@@ -10,6 +10,7 @@ const ControlPanel = () => {
   const { nickName } = useContext(NicknameContext);
   const showAnswers = useSelector((state: any) => state.showAnswers);
   const score = useSelector((state: any) => state.score);
+
   const finishGameHandler = () => {
     dispatch(gameActions.countScore());
     showScoreHandler();
@@ -20,13 +21,14 @@ const ControlPanel = () => {
   const showScoreHandler = () => {
     setShowScore((prevState) => !prevState);
   };
+
   return (
     <div>
       {showScore && (
         <Modal
           onClickHandler={showScoreHandler}
-          title="SCORE"
-          message={`Congratulations, ${nickName}!\n Your score: \n ${score}`}
+          title={"Score"}
+          message={`Congratulations, ${nickName}\nYour score:\n${score}`}
         />
       )}
       {showAnswers && (

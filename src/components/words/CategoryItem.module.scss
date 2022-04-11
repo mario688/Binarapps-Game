@@ -3,7 +3,6 @@
 .gameContent {
   height: 100%;
   width: 100%;
-  position: relative;
 }
 .question {
   background-color: rgb(206, 251, 204);
@@ -12,10 +11,30 @@
   text-align: center;
   padding-top: 0.5rem;
 }
-.wordsFlexContainer {
+.cloudContainer {
   @include flexCenter(column);
   flex-wrap: wrap;
   width: 100%;
   height: calc(100% - 2.5rem);
-  background-color: aquamarine;
+  background-color: rgb(157, 252, 255);
+  .firstLvlCloud,
+  .secondLvlCloud,
+  .thirdLvlCloud {
+    background-color: white;
+  }
+  .firstLvlCloud {
+    border-radius: 30px 30px 0 0;
+  }
+  .secondLvlCloud {
+    border-radius: 30px 30px 30px 30px;
+  }
+  .thirdLvlCloud {
+    border-radius: 0 0 30px 30px;
+  }
+  .cloud {
+    padding: 1rem;
+
+    @include flexCenter(row);
+    flex-wrap: wrap;
+  }
 }

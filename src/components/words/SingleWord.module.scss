@@ -3,12 +3,16 @@
   @include flexCenter(column);
   text-align: center;
   font-size: x-large;
-  margin: 1rem;
+
+  margin: 0 1rem;
   border-radius: 50rem;
-  width: 6rem;
 
   &:hover {
     cursor: pointer;
+  }
+  &:nth-of-type(4n + 2) {
+  }
+  &:nth-of-type(4n + 1) {
   }
 }
 

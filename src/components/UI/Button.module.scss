@@ -10,4 +10,10 @@
     background-color: lighten($btnColor, 40);
     cursor: pointer;
   }
+  &:disabled {
+    color: rgb(168, 166, 166);
+    background-color: grey;
+    border: 2px solid rgb(56, 56, 56);
+    cursor: not-allowed;
+  }
 }

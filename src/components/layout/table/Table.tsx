@@ -11,14 +11,12 @@ const Table: React.FC<{ heads: string[]; rows: any[][] }> = (props) => {
     </tr>
   ));
   return (
-    <div>
-      <table className={Style.table}>
-        <tbody>
-          <tr className={Style.thead}>{theads}</tr>
-          {tabledatas}
-        </tbody>
-      </table>
-    </div>
+    <table className={Style.fixed_header}>
+      <thead>
+        <tr>{theads}</tr>
+      </thead>
+      <tbody>{tabledatas}</tbody>
+    </table>
   );
 };
 export default Table;

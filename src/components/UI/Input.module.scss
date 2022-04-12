@@ -1,7 +1,7 @@
 @import "../../scss/mixins";
 .inputContainer {
   @include flexCenter(column);
-  align-items: stretch;
+
   width: clamp(8rem, 80%, 40rem);
   height: 5rem;
   label {
@@ -11,6 +11,7 @@
   }
   input {
     height: 2rem;
+    width: clamp(1rem, 80%, 20rem);
     padding: 0.3rem;
     padding-left: 0.9rem;
     font-size: larger;

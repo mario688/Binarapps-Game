@@ -1,0 +1,62 @@
+@import "../../../scss/mixins";
+
+.form {
+  @include flexCenter(column);
+  justify-content: flex-start;
+  padding: 1rem;
+  background-color: rgb(186, 239, 246);
+  height: 40rem;
+  width: 100%;
+}
+.inputsContainer {
+  @include flexCenter(row);
+  background-image: linear-gradient(
+    to right,
+    rgb(54, 54, 54) 33%,
+    rgba(255, 255, 255, 0) 0%
+  );
+  background-position: bottom;
+  background-size: 2rem 1px;
+  background-repeat: repeat-x;
+  height: 8rem;
+  width: 100%;
+}
+.newWordsContainer {
+  @include flexCenter(column);
+  overflow-y: scroll;
+  justify-content: flex-start;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-top: 1rem;
+  background-color: red;
+  height: 80%;
+  width: 90%;
+}
+.addButton {
+  width: 5rem;
+  height: 5rem;
+  background-image: url("../../../svg/add.svg");
+  background-repeat: no-repeat;
+  &:hover {
+    cursor: pointer;
+  }
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

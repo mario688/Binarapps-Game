@@ -1,0 +1,15 @@
+.word {
+  margin: 0.2rem;
+  padding: 0.4rem;
+  background-color: aqua;
+  width: clamp(2rem, 80%, 40rem);
+  min-height: 2.2rem;
+  text-align: center;
+  border-radius: 5px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.good {
+  background-color: rgb(132, 249, 167);
+}

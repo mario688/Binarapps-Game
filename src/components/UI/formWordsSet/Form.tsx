@@ -5,6 +5,7 @@ import Button from "../Button";
 import NewWord from "./NewWord";
 import Modal from "../modal/Modal";
 import useRequest from "../../../hook/use-http";
+import Spinner from "../spinner/Spinner";
 const Form = () => {
   const [words, setWords] = useState<string[]>([]);
   const [goodWords, setGoodWords] = useState<string[]>([]);
@@ -34,7 +35,8 @@ const Form = () => {
     setGoodWords((prev) => [...prev, goodWord]);
   };
 
-  const saveWordsSetHandler = () => {
+  const saveWordsSetHandler = (e: Event) => {
+    e.preventDefault();
     const question = questionRef!.current!.value;
     const category = categoryRef!.current!.value;
     if (!goodWords.length) {
@@ -42,6 +44,7 @@ const Form = () => {
       setShowModal(true);
       return;
     }
+
     sendRequest(
       "https://sturdy-dragon-299320-default-rtdb.firebaseio.com/wordslist.json",
       "POST",
@@ -117,7 +120,10 @@ const Form = () => {
         <div onClick={addWordHandler} className={Style.addButton}></div>
       </div>
 
-      <div className={Style.newWordsContainer}>{wordsForDisplay}</div>
+      <div className={Style.newWordsContainer}>
+        {isLoading && <Spinner />}
+        {wordsForDisplay}
+      </div>
       <Button onClickHandler={saveWordsSetHandler}>Save set</Button>
     </form>
   );

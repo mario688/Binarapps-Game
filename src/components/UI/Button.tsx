@@ -1,7 +1,8 @@
 import Style from "./Button.module.scss";
-const Button: React.FC<{ onClickHandler: () => void; disabled?: boolean }> = (
-  props
-) => {
+const Button: React.FC<{
+  onClickHandler: (e?: any) => void;
+  disabled?: boolean;
+}> = (props) => {
   const { disabled } = props;
 
   const { onClickHandler } = props;

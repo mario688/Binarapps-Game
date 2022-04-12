@@ -1,8 +1,9 @@
 import Style from "./NewWord.module.scss";
 import { useState } from "react";
-const NewWord: React.FC = (props) => {
+const NewWord: React.FC<{ onClickFunction: any }> = (props) => {
   const [isGood, setIsGood] = useState(false);
   const goodWordHandler = () => {
+    props.onClickFunction(props.children);
     setIsGood((prev) => !prev);
   };
   return (

@@ -4,12 +4,15 @@ import Style from "./Form.module.scss";
 import Button from "../Button";
 import NewWord from "./NewWord";
 import Modal from "../modal/Modal";
+import useRequest from "../../../hook/use-http";
 const Form = () => {
   const [words, setWords] = useState<string[]>([]);
+  const [goodWords, setGoodWords] = useState<string[]>([]);
   const [showModal, setShowModal] = useState(false);
   const categoryRef = useRef<HTMLInputElement>();
   const questionRef = useRef<HTMLInputElement>();
   const wordRef = useRef<HTMLInputElement>();
+  const { isLoading, sendRequest, dataResp } = useRequest();
 
   const addWordHandler = () => {
     const word: string = wordRef.current!.value!.trim();
@@ -22,11 +25,30 @@ const Form = () => {
     }
     setWords((prev) => [...prev, word]);
   };
-  const saveWordsSetHandler = () => {
-    console.log("xd");
+  const addGoodWordsHandler = (goodWord: any) => {
+    if (goodWords.includes(goodWord)) {
+      const arrayWithDeletedElement = goodWords.filter((el) => el !== goodWord);
+      setGoodWords(arrayWithDeletedElement);
+      return;
+    }
+    setGoodWords((prev) => [...prev, goodWord]);
   };
+  console.log(goodWords);
+  const saveWordsSetHandler = () => {
+    // sendRequest(
+    //   "https://sturdy-dragon-299320-default-rtdb.firebaseio.com/wordslist.json",
+    //   "POST",
+    //   {all_words:words,
+    //   caregory:categoryRef!.current!.value
+    //     good_words:[]
+    // }
+    // );
+  };
+
   const wordsForDisplay = words.map((wordElement) => (
-    <NewWord key={wordElement}>{wordElement}</NewWord>
+    <NewWord onClickFunction={addGoodWordsHandler} key={wordElement}>
+      {wordElement}
+    </NewWord>
   ));
   return (
     <form className={Style.form}>

@@ -3,8 +3,10 @@ import { useRef, useState } from "react";
 import Style from "./Form.module.scss";
 import Button from "../Button";
 import NewWord from "./NewWord";
+import Modal from "../modal/Modal";
 const Form = () => {
   const [words, setWords] = useState<string[]>([]);
+  const [showModal, setShowModal] = useState(false);
   const categoryRef = useRef<HTMLInputElement>();
   const questionRef = useRef<HTMLInputElement>();
   const wordRef = useRef<HTMLInputElement>();
@@ -14,16 +16,29 @@ const Form = () => {
     if (!word) {
       return;
     }
+    if (words.includes(word)) {
+      setShowModal(true);
+      return;
+    }
     setWords((prev) => [...prev, word]);
   };
   const saveWordsSetHandler = () => {
     console.log("xd");
   };
   const wordsForDisplay = words.map((wordElement) => (
-    <NewWord>{wordElement}</NewWord>
+    <NewWord key={wordElement}>{wordElement}</NewWord>
   ));
   return (
     <form className={Style.form}>
+      {showModal && (
+        <Modal
+          onClickHandler={() => {
+            setShowModal((prev) => !prev);
+          }}
+          title="INFO"
+          message={"This word is already in set"}
+        />
+      )}
       <div className={Style.inputsContainer}>
         <Input
           label="Question"

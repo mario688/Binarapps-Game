@@ -1,10 +1,12 @@
 import { useState, useContext } from "react";
+import useRequest from "../../../hook/use-http";
 import { gameActions } from "../../../store/game";
 import { useDispatch, useSelector } from "react-redux";
 import NicknameContext from "../../../context/RegisterNicknameContext";
 import Modal from "../modal/Modal";
 import Button from "../Button";
 const ControlPanel = () => {
+  const { isLoading, dataResp, sendRequest } = useRequest();
   const [showScore, setShowScore] = useState(false);
   const dispatch = useDispatch();
   const { nickName } = useContext(NicknameContext);
@@ -12,11 +14,20 @@ const ControlPanel = () => {
   const score = useSelector((state: any) => state.score);
 
   const finishGameHandler = () => {
-    dispatch(gameActions.countScore());
     showScoreHandler();
+    console.log(score);
+    const url =
+      "https://sturdy-dragon-299320-default-rtdb.firebaseio.com/scoreslist.json";
+    sendRequest(url, "POST", {
+      category: "xd",
+      nick: nickName,
+      date: new Date().toISOString,
+      score: score,
+    });
   };
   const checkAnswersHandler = () => {
     dispatch(gameActions.checkAnswers());
+    dispatch(gameActions.countScore());
   };
   const showScoreHandler = () => {
     setShowScore((prevState) => !prevState);

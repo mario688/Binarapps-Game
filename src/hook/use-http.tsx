@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-const useRequest = (url: string, method?: string, body?: {}) => {
+const useRequest = () => {
   const [dataResp, setDataResp] = useState();
   const [isLoading, setIsLoading] = useState(false);
-  const fetchHandler = async () => {
+
+  const fetchHandler = async (url: string, method?: string, body?: {}) => {
     setIsLoading(true);
     const response = await fetch(url, {
       method: method ? method : "GET",
@@ -16,13 +17,10 @@ const useRequest = (url: string, method?: string, body?: {}) => {
     setDataResp(responseJson);
   };
 
-  useEffect(() => {
-    fetchHandler();
-  }, []);
-
   return {
     isLoading,
     dataResp,
+    sendRequest: fetchHandler,
   };
 };
 

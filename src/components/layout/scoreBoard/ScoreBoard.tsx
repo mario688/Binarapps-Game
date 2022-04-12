@@ -2,6 +2,7 @@ import Table from "../table/Table";
 import Card from "../card/Card";
 import useRequest from "../../../hook/use-http";
 import Spinner from "../../UI/spinner/Spinner";
+import Style from "./ScoreBoard.module.scss";
 const ScoreBoard = () => {
   const { dataResp, isLoading } = useRequest(
     "https://sturdy-dragon-299320-default-rtdb.firebaseio.com/scoreslist.json"
@@ -20,14 +21,16 @@ const ScoreBoard = () => {
 
   return (
     <Card>
-      {isLoading ? (
-        <Spinner />
-      ) : (
-        <Table
-          heads={["No.", "Nick", "Category", "Date", "Score"]}
-          rows={playersList}
-        />
-      )}
+      <div className={Style.scoreBoardContainer}>
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <Table
+            heads={["No.", "Nick", "Category", "Date", "Score"]}
+            rows={playersList}
+          />
+        )}
+      </div>
     </Card>
   );
 };

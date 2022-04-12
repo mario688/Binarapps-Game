@@ -3,13 +3,18 @@
   width: clamp(22rem, 80%, 50rem);
   table-layout: fixed;
   border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 1rem;
   tbody {
     display: block;
     width: 100%;
     overflow: auto;
     height: 15rem;
+    tr {
+      background-color: rgba(255, 255, 255, 0.819);
+    }
     tr:nth-child(even) {
-      background-color: rgb(228, 233, 228);
+      background-color: rgba(228, 233, 228, 0.675);
     }
   }
   thead {

@@ -11,7 +11,9 @@ import ScoreBoard from "./components/layout/scoreBoard/ScoreBoard";
 import ControlPanel from "./components/UI/controlPanel/ControlPanel";
 function App() {
   const { isRegistered, nickName } = useContext(NicknameContext);
-
+  // {!isRegistered && <Register />}
+  // {isRegistered ? <Board /> : <Navigate to="/register" />}
+  // {isRegistered && <ControlPanel />}
   return (
     <div className="App">
       <NavBar
@@ -32,7 +34,6 @@ function App() {
               <>
                 {!isRegistered && <Register />}
                 {isRegistered ? <Board /> : <Navigate to="/register" />}
-
                 {isRegistered && <ControlPanel />}
               </>
             </Card>

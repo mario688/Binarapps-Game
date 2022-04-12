@@ -1,0 +1,10 @@
+@import "../../../scss/mixins";
+.scoreBoardContainer {
+  @include flexCenter(row);
+  width: 100%;
+  height: 100%;
+  background-image: url("../../../svg/cloud.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

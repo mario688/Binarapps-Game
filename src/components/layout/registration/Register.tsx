@@ -13,7 +13,7 @@ const Register = () => {
     if (nickLength < 1) {
       return;
     }
-    NicknamCtx.register(refNick.current!.value);
+    NicknamCtx.register(refNick.current!.value.trim());
     navigate("/play");
   };
   return (

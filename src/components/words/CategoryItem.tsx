@@ -43,15 +43,18 @@ const CategoryItem: React.FC<{ category: Category }> = (props) => {
     <div className={Style.gameContent}>
       <div className={Style.question}>{question}</div>
       <div className={Style.cloudContainer}>
+        <div className={Style.miniCloud}></div>
         <div className={`${Style.firstLvlCloud} ${Style.cloud}`}>
           {cloud.firstLvl}
         </div>
+
         <div className={`${Style.secondLvlCloud} ${Style.cloud}`}>
           {cloud.secondLvl}
         </div>
         <div className={`${Style.thirdLvlCloud} ${Style.cloud}`}>
           {cloud.thirdLvl}
         </div>
+        <div className={`${Style.miniCloud} ${Style.endCloud}`}></div>
       </div>
     </div>
   );

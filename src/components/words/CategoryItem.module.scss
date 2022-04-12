@@ -1,22 +1,34 @@
 @import "../../scss/mixins";
-
+@import "../../scss/colors";
 .gameContent {
+  color: lighten($fontColor, 30%);
   height: 100%;
   width: 100%;
 }
 .question {
-  background-color: rgb(206, 251, 204);
+  border-radius: 10px 10px 0 0;
+  background-color: $questionBar;
   width: 100%;
   height: 2rem;
   text-align: center;
   padding-top: 0.5rem;
 }
 .cloudContainer {
+  color: black;
   @include flexCenter(column);
-  flex-wrap: wrap;
+  border-radius: 0 0 10px 10px;
   width: 100%;
   height: calc(100% - 2.5rem);
-  background-color: rgb(157, 252, 255);
+  background-color: $skyColor;
+  .miniCloud {
+    width: 6rem;
+    height: 1rem;
+    border-radius: 10px 10px 0 0;
+  }
+  .endCloud {
+    border-radius: 0 0 10px 10px;
+  }
+  .miniCloud,
   .firstLvlCloud,
   .secondLvlCloud,
   .thirdLvlCloud {
@@ -24,17 +36,59 @@
   }
   .firstLvlCloud {
     border-radius: 30px 30px 0 0;
+    max-width: 40rem;
   }
   .secondLvlCloud {
     border-radius: 30px 30px 30px 30px;
+    max-width: 60rem;
   }
   .thirdLvlCloud {
+    max-width: 40rem;
     border-radius: 0 0 30px 30px;
   }
   .cloud {
-    padding: 1rem;
-
+    padding: 0.5rem;
     @include flexCenter(row);
     flex-wrap: wrap;
+  }
+  @media (max-width: 50rem) {
+    .firstLvlCloud {
+      max-width: 20rem;
+    }
+    .secondLvlCloud {
+      border-radius: 30px 30px 30px 30px;
+      max-width: 25rem;
+    }
+    .thirdLvlCloud {
+      max-width: 20rem;
+      border-radius: 0 0 30px 30px;
+    }
+  }
+  @media (min-width: 50rem) and (max-width: 75rem) {
+    .firstLvlCloud {
+      max-width: 30rem;
+    }
+    .secondLvlCloud {
+      border-radius: 30px 30px 30px 30px;
+      max-width: 40rem;
+    }
+    .thirdLvlCloud {
+      max-width: 30rem;
+      border-radius: 0 0 30px 30px;
+    }
+  }
+
+  @media (min-width: 70rem) and (max-width: 80rem) {
+    .firstLvlCloud {
+      max-width: 40rem;
+    }
+    .secondLvlCloud {
+      border-radius: 30px 30px 30px 30px;
+      max-width: 50rem;
+    }
+    .thirdLvlCloud {
+      max-width: 40rem;
+      border-radius: 0 0 30px 30px;
+    }
   }
 }

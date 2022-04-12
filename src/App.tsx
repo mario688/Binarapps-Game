@@ -11,6 +11,7 @@ import ScoreBoard from "./components/layout/scoreBoard/ScoreBoard";
 import HomePage from "./pages/HomePage";
 import ControlPanel from "./components/UI/controlPanel/ControlPanel";
 import CreateQuestionPage from "./pages/CreateQuestionPage";
+
 function App() {
   const { isRegistered, nickName } = useContext(NicknameContext);
   // {!isRegistered && <Register />}

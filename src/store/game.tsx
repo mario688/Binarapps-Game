@@ -24,7 +24,11 @@ const gameSlice = createSlice({
   initialState: initState,
   reducers: {
     setGameProp: (state, action) => {
-      console.log(action.payload);
+      const { category, good_words } = action.payload;
+      state.gameProp = {
+        goodWords: good_words,
+        questionCategory: category,
+      };
     },
 
     selectWord: (state, action) => {

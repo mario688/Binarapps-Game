@@ -15,7 +15,10 @@ const ControlPanel = () => {
   const { nickName } = useContext(NicknameContext);
   const showAnswers = useSelector((state: any) => state.showAnswers);
   const score = useSelector((state: any) => state.score);
-  const questionCategory = useSelector((state: any) => state.questionCategory);
+
+  const questionCategory = useSelector(
+    (state: any) => state.gameProp.questionCategory
+  );
 
   const finishGameHandler = () => {
     showScoreHandler();

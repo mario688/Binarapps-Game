@@ -1,5 +1,6 @@
 import SingleWord from "./SingleWord";
 import Style from "./CategoryItem.module.scss";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { gameActions } from "../../store/game";
 interface Category {
@@ -12,8 +13,11 @@ const CategoryItem: React.FC<{ singleCategory: Category }> = (props) => {
   const dispatch = useDispatch();
   const { all_words, good_words, question, category } = props.singleCategory;
 
-  dispatch(gameActions.setGameProp({ good_words, category }));
+  useEffect(() => {
+    dispatch(gameActions.setGameProp({ good_words, category }));
+  }, []);
 
+  console.log("xd");
   const singleWord = all_words.map((element) => (
     <SingleWord
       key={element}

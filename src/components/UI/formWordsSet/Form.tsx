@@ -33,16 +33,20 @@ const Form = () => {
     }
     setGoodWords((prev) => [...prev, goodWord]);
   };
-  console.log(goodWords);
+
   const saveWordsSetHandler = () => {
-    // sendRequest(
-    //   "https://sturdy-dragon-299320-default-rtdb.firebaseio.com/wordslist.json",
-    //   "POST",
-    //   {all_words:words,
-    //   caregory:categoryRef!.current!.value
-    //     good_words:[]
-    // }
-    // );
+    const question = questionRef!.current!.value;
+    const category = categoryRef!.current!.value;
+    sendRequest(
+      "https://sturdy-dragon-299320-default-rtdb.firebaseio.com/wordslist.json",
+      "POST",
+      {
+        question,
+        all_words: words,
+        category,
+        good_words: goodWords,
+      }
+    );
   };
 
   const wordsForDisplay = words.map((wordElement) => (

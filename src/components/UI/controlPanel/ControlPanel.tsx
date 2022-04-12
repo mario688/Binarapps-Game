@@ -1,12 +1,15 @@
 import { useState, useContext } from "react";
 import useRequest from "../../../hook/use-http";
+import { useNavigate } from "react-router";
 import { gameActions } from "../../../store/game";
 import { useDispatch, useSelector } from "react-redux";
 import NicknameContext from "../../../context/RegisterNicknameContext";
 import Modal from "../modal/Modal";
 import Button from "../Button";
 const ControlPanel = () => {
+  const navigate = useNavigate();
   const { isLoading, dataResp, sendRequest } = useRequest();
+  const [gameFinished, setGameFinished] = useState(false);
   const [showScore, setShowScore] = useState(false);
   const dispatch = useDispatch();
   const { nickName } = useContext(NicknameContext);
@@ -15,15 +18,15 @@ const ControlPanel = () => {
 
   const finishGameHandler = () => {
     showScoreHandler();
-    console.log(score);
     const url =
       "https://sturdy-dragon-299320-default-rtdb.firebaseio.com/scoreslist.json";
     sendRequest(url, "POST", {
       category: "xd",
       nick: nickName,
-      date: new Date().toISOString,
+      date: new Date().toISOString(),
       score: score,
     });
+    setGameFinished(true);
   };
   const checkAnswersHandler = () => {
     dispatch(gameActions.checkAnswers());
@@ -32,7 +35,10 @@ const ControlPanel = () => {
   const showScoreHandler = () => {
     setShowScore((prevState) => !prevState);
   };
-
+  const newGameHandler = () => {
+    console.log("play again");
+    navigate("/");
+  };
   return (
     <div>
       {showScore && (
@@ -42,12 +48,13 @@ const ControlPanel = () => {
           message={`Congratulations, ${nickName}\nYour score:\n${score}`}
         />
       )}
-      {showAnswers && (
+      {showAnswers && !gameFinished && (
         <Button onClickHandler={finishGameHandler}>finish game</Button>
       )}
       {!showAnswers && (
         <Button onClickHandler={checkAnswersHandler}>check answers</Button>
       )}
+      {gameFinished && <Button onClickHandler={newGameHandler}>Exit</Button>}
     </div>
   );
 };

@@ -11,7 +11,6 @@ const ScoreBoard = () => {
       "https://sturdy-dragon-299320-default-rtdb.firebaseio.com/scoreslist.json"
     );
   }, []);
-
   const scoresList: any = dataResp;
 
   const playersList = [];

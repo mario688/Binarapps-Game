@@ -8,7 +8,9 @@ import NicknameContext from "./context/RegisterNicknameContext";
 import { useContext } from "react";
 import { Navigate } from "react-router";
 import ScoreBoard from "./components/layout/scoreBoard/ScoreBoard";
+import HomePage from "./pages/HomePage";
 import ControlPanel from "./components/UI/controlPanel/ControlPanel";
+import CreateQuestionPage from "./pages/CreateQuestionPage";
 function App() {
   const { isRegistered, nickName } = useContext(NicknameContext);
   // {!isRegistered && <Register />}
@@ -27,6 +29,23 @@ function App() {
       />
 
       <Routes>
+        <Route
+          path={"/"}
+          element={
+            <Card>
+              <HomePage />
+            </Card>
+          }
+        />
+        <Route
+          path={"/addnewset"}
+          element={
+            <Card>
+              <CreateQuestionPage />
+            </Card>
+          }
+        />
+
         <Route
           path="/play"
           element={

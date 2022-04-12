@@ -15,13 +15,14 @@ const ControlPanel = () => {
   const { nickName } = useContext(NicknameContext);
   const showAnswers = useSelector((state: any) => state.showAnswers);
   const score = useSelector((state: any) => state.score);
+  const questionCategory = useSelector((state: any) => state.questionCategory);
 
   const finishGameHandler = () => {
     showScoreHandler();
     const url =
       "https://sturdy-dragon-299320-default-rtdb.firebaseio.com/scoreslist.json";
     sendRequest(url, "POST", {
-      category: "xd",
+      category: questionCategory,
       nick: nickName,
       date: new Date().toISOString(),
       score: score,

@@ -6,11 +6,13 @@ interface Category {
   all_words: string[];
   good_words: string[];
   question: string;
+  category: string;
 }
-const CategoryItem: React.FC<{ category: Category }> = (props) => {
+const CategoryItem: React.FC<{ singleCategory: Category }> = (props) => {
   const dispatch = useDispatch();
-  const { all_words, good_words, question } = props.category;
-  dispatch(gameActions.setGoodWords(good_words));
+  const { all_words, good_words, question, category } = props.singleCategory;
+
+  dispatch(gameActions.setGameProp({ good_words, category }));
 
   const singleWord = all_words.map((element) => (
     <SingleWord
@@ -19,11 +21,6 @@ const CategoryItem: React.FC<{ category: Category }> = (props) => {
       isCorrect={good_words.includes(element)}
     />
   ));
-
-  //   25
-  // longC = 25/2 = 12
-  // shorC =25-12=13/2 =6
-  // rest = 25 - 12 - 6*2 = 25-12-12=1;
 
   const makeCloud = (elements: any) => {
     const longCloud = singleWord.length / 2;

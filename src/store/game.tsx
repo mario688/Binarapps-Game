@@ -1,13 +1,20 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
 interface InitState {
-  goodWords: string[];
+  gameProp: {
+    goodWords: string[];
+    questionCategory: string;
+  };
+
   selectedWords: string[];
   score: number;
   showAnswers: boolean;
 }
 const initState: InitState = {
-  goodWords: [],
+  gameProp: {
+    goodWords: [],
+    questionCategory: "",
+  },
   selectedWords: [],
   score: 0,
   showAnswers: false,
@@ -16,9 +23,10 @@ const gameSlice = createSlice({
   name: "game",
   initialState: initState,
   reducers: {
-    setGoodWords: (state, action: { payload: string[] }) => {
-      state.goodWords = action.payload;
+    setGameProp: (state, action) => {
+      console.log(action.payload);
     },
+
     selectWord: (state, action) => {
       state.selectedWords.push(action.payload);
     },
@@ -38,7 +46,8 @@ const gameSlice = createSlice({
       // (liczba zaznaczonych poprawnych odpowiedzi * 2) - (liczba zaznaczonych błędnych odpowiedzi +
       //   liczba niezaznaczonych poprawnych odpowiedzi).
 
-      const { goodWords, selectedWords } = state;
+      const { selectedWords } = state;
+      const { goodWords } = state.gameProp;
       console.log("zestaw: " + goodWords);
       console.log("selectedWords: " + selectedWords);
       console.log("------");

@@ -14,7 +14,9 @@ const CategoryList = () => {
   const categoryList: any = dataResp;
   const wordslist = [];
   for (let key in categoryList) {
-    wordslist.push(<CategoryItem key={key} category={categoryList[key]} />);
+    wordslist.push(
+      <CategoryItem key={key} singleCategory={categoryList[key]} />
+    );
   }
 
   //word set draw

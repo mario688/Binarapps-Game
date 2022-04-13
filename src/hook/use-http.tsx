@@ -2,24 +2,32 @@ import { useEffect, useState } from "react";
 const useRequest = () => {
   const [dataResp, setDataResp] = useState();
   const [isLoading, setIsLoading] = useState(false);
-
+  const [error, setError] = useState(null);
   const fetchHandler = async (url: string, method?: string, body?: {}) => {
-    setIsLoading(true);
-    const response = await fetch(url, {
-      method: method ? method : "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: body ? JSON.stringify(body) : null,
-    });
-    const responseJson = await response.json();
-    setIsLoading(false);
-    setDataResp(responseJson);
+    try {
+      setIsLoading(true);
+      const response = await fetch(url, {
+        method: method ? method : "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: body ? JSON.stringify(body) : null,
+      });
+      if (!response.ok) {
+        throw new Error("Something went wrong! :(");
+      }
+      const responseJson = await response.json();
+      setIsLoading(false);
+      setDataResp(responseJson);
+    } catch (error: any) {
+      setError(error);
+    }
   };
 
   return {
     isLoading,
     dataResp,
+    error,
     sendRequest: fetchHandler,
   };
 };

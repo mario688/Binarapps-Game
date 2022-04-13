@@ -14,9 +14,7 @@ import CreateQuestionPage from "./pages/CreateQuestionPage";
 
 function App() {
   const { isRegistered, nickName } = useContext(NicknameContext);
-  // {!isRegistered && <Register />}
-  // {isRegistered ? <Board /> : <Navigate to="/register" />}
-  // {isRegistered && <ControlPanel />}
+
   return (
     <div className="App">
       <NavBar

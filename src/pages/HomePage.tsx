@@ -34,7 +34,7 @@ const HomePage = () => {
     const drawBackgournd = () => {
       context.fillStyle = "rgba(183, 183, 183, 0.239)";
       for (let i = 0; i < 80; i++) {
-        const fontSize = Math.floor(Math.random() * 30) + 10;
+        const fontSize = Math.floor(Math.random() * 40) + 10;
         context.font = `${fontSize}px Comic Sans MS`;
         const x = Math.random() * window.innerWidth;
         const y = Math.random() * window.innerHeight;

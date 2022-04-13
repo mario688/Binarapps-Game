@@ -1,11 +1,13 @@
 import React from "react";
 import Style from "./VerticalNavBar.module.scss";
+
 const VerticalNavBar: React.FC<{
   isOpen: boolean;
   menuList: JSX.Element[];
   onClickHandler: () => void;
 }> = (props) => {
   const { isOpen, menuList } = props;
+
   return (
     <>
       {isOpen && (

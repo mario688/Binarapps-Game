@@ -11,6 +11,7 @@
   z-index: 600;
   transition: all 0.5s ease-in-out;
 }
+
 .verticalBarList {
   @include flexCenter(column);
   padding: 0;

@@ -3,6 +3,7 @@ import VerticalNavBar from "./VerticalNavBar";
 import Style from "./NavBar.module.scss";
 import { ReactComponent as HamburgerIcon } from "../../../svg/hamburger.svg";
 import { NavLink } from "react-router-dom";
+
 const NavBar: React.FC<{ menuElements: String[]; menuLinks: String[] }> = (
   props
 ) => {
@@ -11,18 +12,33 @@ const NavBar: React.FC<{ menuElements: String[]; menuLinks: String[] }> = (
   const showMenuHandler = () => {
     setshowMenu((prevState) => !prevState);
   };
+
   const liList = props.menuElements.map((el, id) => (
     <NavLink className={Style.navlink} key={id} to={`${props.menuLinks[id]}`}>
       <li key={id}>{el}</li>
     </NavLink>
   ));
+  const verticalList = [...liList];
+  verticalList.unshift(
+    <NavLink className={Style.navlink} key={"homeV"} to={`/`}>
+      <li className={Style.homeIcon} key={"homeV"}>
+        home
+      </li>
+    </NavLink>
+  );
+
+  liList.unshift(
+    <NavLink className={Style.navlink} key={"home"} to={`/`}>
+      <li className={Style.homeIcon} key={"home"}></li>
+    </NavLink>
+  );
 
   return (
     <>
       <VerticalNavBar
         onClickHandler={showMenuHandler}
         isOpen={showMenu}
-        menuList={liList}
+        menuList={verticalList}
       />
       <nav className={Style.navBar}>
         <ul className={Style.navBarList}>

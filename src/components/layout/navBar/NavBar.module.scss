@@ -17,6 +17,11 @@
   padding: 0;
   height: 100%;
   width: 100%;
+  .homeIcon {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("../../../svg/home.svg");
+  }
   li {
     margin: 1rem;
     display: block;

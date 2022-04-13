@@ -19,7 +19,11 @@ const NavBar: React.FC<{ menuElements: String[]; menuLinks: String[] }> = (
 
   return (
     <>
-      <VerticalNavBar isOpen={showMenu} menuList={liList} />
+      <VerticalNavBar
+        onClickHandler={showMenuHandler}
+        isOpen={showMenu}
+        menuList={liList}
+      />
       <nav className={Style.navBar}>
         <ul className={Style.navBarList}>
           {liList.slice(0, liList.length - 1)}

@@ -40,7 +40,6 @@ const ControlPanel = () => {
     setShowScore((prevState) => !prevState);
   };
   const newGameHandler = () => {
-    console.log("play again");
     navigate("/");
   };
   return (
@@ -49,7 +48,7 @@ const ControlPanel = () => {
         <Modal
           onClickHandler={showScoreHandler}
           title={"Score"}
-          message={`Congratulations, ${nickName}\nYour score:\n${score}`}
+          message={`Congratulations, ${nickName} ! Your score: ${score}`}
         />
       )}
       {showAnswers && !gameFinished && (

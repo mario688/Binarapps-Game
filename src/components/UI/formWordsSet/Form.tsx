@@ -10,12 +10,15 @@ const Form = () => {
   const [words, setWords] = useState<string[]>([]);
   const [goodWords, setGoodWords] = useState<string[]>([]);
   const [showModal, setShowModal] = useState(false);
+  const [isInputHasContent, setIsInputHasContent] = useState(false);
   const categoryRef = useRef<HTMLInputElement>();
   const questionRef = useRef<HTMLInputElement>();
   const wordRef = useRef<HTMLInputElement>();
   const { isLoading, sendRequest, dataResp } = useRequest();
-
+  let question: string;
+  let category: string;
   const addWordHandler = () => {
+    inputsValidation();
     const word: string = wordRef.current!.value!.trim();
     if (!word) {
       return;
@@ -26,6 +29,7 @@ const Form = () => {
     }
     setWords((prev) => [...prev, word]);
   };
+
   const addGoodWordsHandler = (goodWord: any) => {
     if (goodWords.includes(goodWord)) {
       const arrayWithDeletedElement = goodWords.filter((el) => el !== goodWord);
@@ -35,10 +39,23 @@ const Form = () => {
     setGoodWords((prev) => [...prev, goodWord]);
   };
 
+  const inputsValidation = () => {
+    const question = questionRef!.current!.value.trim();
+    const category = categoryRef!.current!.value.trim();
+    const word = wordRef!.current!.value.trim();
+    if (question.length > 0 && category.length > 0 && word.length > 0) {
+      setIsInputHasContent(true);
+    } else {
+      setShowModal(true);
+      setIsInputHasContent(false);
+      return;
+    }
+  };
   const saveWordsSetHandler = (e: Event) => {
     e.preventDefault();
-    const question = questionRef!.current!.value;
-    const category = categoryRef!.current!.value;
+
+    inputsValidation();
+    console.log("xd");
     if (!goodWords.length) {
       console.log("select one word at least");
       setShowModal(true);
@@ -73,7 +90,16 @@ const Form = () => {
           message={"This word is already in set"}
         />
       )}
-      {!goodWords.length && showModal && (
+      {!isInputHasContent && showModal && (
+        <Modal
+          onClickHandler={() => {
+            setShowModal((prev) => !prev);
+          }}
+          title="INFO"
+          message={"Please insert question, category and word"}
+        />
+      )}
+      {!goodWords.length && showModal && isInputHasContent && (
         <Modal
           onClickHandler={() => {
             setShowModal((prev) => !prev);
@@ -119,7 +145,9 @@ const Form = () => {
         />
         <div onClick={addWordHandler} className={Style.addButton}></div>
       </div>
-
+      <div className={Style.info}>
+        Click on added word to select/unselect correct question
+      </div>
       <div className={Style.newWordsContainer}>
         {isLoading && <Spinner />}
         {wordsForDisplay}

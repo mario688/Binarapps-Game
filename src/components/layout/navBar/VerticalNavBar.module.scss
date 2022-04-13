@@ -8,7 +8,7 @@
   left: 0;
   width: 50vw;
   height: calc(100vh - 4rem);
-  z-index: 100;
+  z-index: 600;
   transition: all 0.5s ease-in-out;
 }
 .verticalBarList {
@@ -26,6 +26,15 @@
       color: lighten($fontColor, 30);
     }
   }
+}
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 500;
+  background-color: rgba(0, 0, 0, 0.379);
 }
 .navOpen {
   opacity: 1;

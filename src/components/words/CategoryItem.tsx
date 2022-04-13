@@ -17,7 +17,6 @@ const CategoryItem: React.FC<{ singleCategory: Category }> = (props) => {
     dispatch(gameActions.setGameProp({ good_words, category }));
   }, []);
 
-  console.log("xd");
   const singleWord = all_words.map((element) => (
     <SingleWord
       key={element}

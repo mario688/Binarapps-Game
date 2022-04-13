@@ -1,7 +1,7 @@
 .word {
   margin: 0.2rem;
   padding: 0.4rem;
-  background-color: aqua;
+  background-color: rgb(219, 254, 254);
   width: clamp(2rem, 80%, 40rem);
   min-height: 2.2rem;
   text-align: center;
@@ -11,5 +11,5 @@
   }
 }
 .good {
-  background-color: rgb(132, 249, 167);
+  background-color: rgb(180, 253, 202);
 }

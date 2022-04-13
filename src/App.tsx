@@ -30,14 +30,7 @@ function App() {
       />
 
       <Routes>
-        <Route
-          path={"/"}
-          element={
-            <Card>
-              <HomePage />
-            </Card>
-          }
-        />
+        <Route path={"/"} element={<HomePage />} />
         <Route
           path={"/addnewset"}
           element={

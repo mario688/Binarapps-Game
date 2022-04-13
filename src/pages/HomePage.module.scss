@@ -1,7 +1,34 @@
-.homeInfo {
+.homePageContainer {
   height: 100%;
-  font-size: 5rem;
-  .title {
+  width: 100%;
+  padding-top: 1rem;
+  canvas {
+    position: absolute;
+    z-index: -100;
+  }
+  .textContainer {
+    font-size: 2rem;
+    font-weight: bold;
     text-align: center;
+    margin-bottom: 2rem;
+    ul {
+      list-style: none;
+      li {
+        margin: 1rem;
+      }
+    }
+  }
+  .btnContainer {
+    text-align: center;
+  }
+}
+.title {
+  margin-bottom: 2rem;
+  font-size: 5rem;
+  text-align: center;
+}
+@media (max-width: 40rem) {
+  .title {
+    font-size: 3.5rem;
   }
 }

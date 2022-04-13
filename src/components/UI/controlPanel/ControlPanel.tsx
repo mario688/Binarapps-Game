@@ -40,6 +40,7 @@ const ControlPanel = () => {
     setShowScore((prevState) => !prevState);
   };
   const newGameHandler = () => {
+    dispatch(gameActions.resetGame());
     navigate("/");
   };
   return (

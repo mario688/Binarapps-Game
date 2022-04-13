@@ -30,7 +30,13 @@ const gameSlice = createSlice({
         questionCategory: category,
       };
     },
-
+    resetGame: (state) => {
+      state.gameProp.goodWords = [];
+      state.gameProp.questionCategory = "";
+      state.selectedWords = [];
+      state.showAnswers = false;
+      state.score = 0;
+    },
     selectWord: (state, action) => {
       state.selectedWords.push(action.payload);
     },

@@ -198,7 +198,7 @@ const Form = () => {
         <div onClick={addWordHandler} className={Style.addButton}></div>
       </div>
       <div className={Style.info}>
-        Click on added word to select/unselect correct question
+        Click on added word to select/unselect correct answer
       </div>
       <div className={Style.newWordsContainer}>
         {isLoading && !error && <Spinner />}

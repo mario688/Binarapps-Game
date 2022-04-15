@@ -14,13 +14,23 @@ const NavBar: React.FC<{ menuElements: String[]; menuLinks: String[] }> = (
   };
 
   const liList = props.menuElements.map((el, id) => (
-    <NavLink className={Style.navlink} key={id} to={`${props.menuLinks[id]}`}>
+    <NavLink
+      onClick={showMenuHandler}
+      className={Style.navlink}
+      key={id}
+      to={`${props.menuLinks[id]}`}
+    >
       <li key={id}>{el}</li>
     </NavLink>
   ));
   const verticalList = [...liList];
   verticalList.unshift(
-    <NavLink className={Style.navlink} key={"homeV"} to={`/`}>
+    <NavLink
+      onClick={showMenuHandler}
+      className={Style.navlink}
+      key={"homeV"}
+      to={`/`}
+    >
       <li className={Style.homeIcon} key={"homeV"}>
         home
       </li>

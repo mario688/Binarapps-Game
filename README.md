@@ -1,4 +1,23 @@
-# Getting Started with Create React App
+# Wordcloud game🎮 
+ ☁️ Gra chmura słów. Umożliwia: ☁️ 
+- zagranie w quiz 
+- sprawdzenie wyników innych użytkowników
+- stworzenie własnego pytania z zestawem odpowiedzi
+
+### `Link:`
+
+ Link do aplikacji cloudgame [Cloudgame-app](https://sturdy-dragon-299320.web.app/)
+## Tech stack🛠
+
+* Frontend:
+  * React:
+    * redux 
+    * router
+  * Typescript
+  * scss
+* Backend:
+    * firebase
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

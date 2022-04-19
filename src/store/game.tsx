@@ -78,5 +78,5 @@ const gameSlice = createSlice({
 export const store = configureStore({
   reducer: gameSlice.reducer,
 });
-
+export type RootState = ReturnType<typeof store.getState>;
 export const gameActions = gameSlice.actions;

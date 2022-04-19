@@ -14,6 +14,11 @@ const NavBar: React.FC<{ menuElements: String[]; menuLinks: String[] }> = (
   };
 
   const liList = props.menuElements.map((el, id) => (
+    <NavLink className={Style.navlink} key={id} to={`${props.menuLinks[id]}`}>
+      <li key={id}>{el}</li>
+    </NavLink>
+  ));
+  const verticalList = props.menuElements.map((el, id) => (
     <NavLink
       onClick={showMenuHandler}
       className={Style.navlink}
@@ -23,7 +28,7 @@ const NavBar: React.FC<{ menuElements: String[]; menuLinks: String[] }> = (
       <li key={id}>{el}</li>
     </NavLink>
   ));
-  const verticalList = [...liList];
+
   verticalList.unshift(
     <NavLink
       onClick={showMenuHandler}

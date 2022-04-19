@@ -9,7 +9,7 @@ const CategoryList = () => {
     sendRequest(
       "https://sturdy-dragon-299320-default-rtdb.firebaseio.com/wordslist.json"
     );
-  }, []);
+  }, [sendRequest]);
 
   const categoryList: any = dataResp;
   const wordslist = [];

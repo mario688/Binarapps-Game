@@ -8,7 +8,7 @@ import Modal from "../modal/Modal";
 import Button from "../Button";
 const ControlPanel = () => {
   const navigate = useNavigate();
-  const { isLoading, dataResp, sendRequest } = useRequest();
+  const { sendRequest } = useRequest();
   const [gameFinished, setGameFinished] = useState(false);
   const [showScore, setShowScore] = useState(false);
   const dispatch = useDispatch();

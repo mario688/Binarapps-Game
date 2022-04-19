@@ -4,13 +4,15 @@ import Card from "../card/Card";
 import useRequest from "../../../hook/use-http";
 import Spinner from "../../UI/spinner/Spinner";
 import Style from "./ScoreBoard.module.scss";
+
 const ScoreBoard = () => {
   const { dataResp, isLoading, sendRequest } = useRequest();
   useEffect(() => {
     sendRequest(
       "https://sturdy-dragon-299320-default-rtdb.firebaseio.com/scoreslist.json"
     );
-  }, []);
+  }, [sendRequest]);
+
   const scoresList: any = dataResp;
 
   const playersList = [];
